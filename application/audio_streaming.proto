@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package audio_streaming;
+
+message AudioChunk {
+  bytes audio = 1;
+}
+
+service AudioStreamer {
+  rpc StreamAudio(stream AudioChunk) returns (stream AudioChunk);
+}
